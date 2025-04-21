@@ -5,12 +5,28 @@ CHOICES
  In some cases you will also need to tell us what you did)
 -------
 9a.
+I added a text-shadow to the .page-title css styling to make my title "Chanyu's About Me" cooler looking.
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 9b.
-12.
-18.
-19.
+I added clamping on the texts which scales the text size of my .about-content section from 14px to 25px depending on the size of my view window.
+    font-size: clamp(14px, 2vw, 25px);
+
+12. a,b,c
+(a) I created a linear gradient on the background color of the header element from yellow to blue.
+    background: linear-gradient(to right, #fffb09, var(--text-color));
+
+(b,c) I also made the .project cards lift slightly when hovered and added a bit of shadows on the bottom.
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+
+18. b
+(b) I crated an inline svg icon of a computer to put in my about-content section after the text "CS"
+    svg class="icon-computer" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+
 JAVASCRIPT
 (Please tells us what the JavaScript does e.g. "click on the green button and it does the following...")
+
+When you click on the toggle button on the top left, it switches the class of colors used for the webpage toggling between a light-mode set of colors and dark-mode set of colors by adding removing the dark-mode class.
 ----------
 NOTES TO STAFF
 (If there is anything you need to tell us, please use the section below)

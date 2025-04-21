@@ -1,0 +1,223 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #2888fe;
+    --border-color: #dedbdb;
+    --btn-color: #121212;
+    --btn-text: #ffffff;
+    --cell-bg: #efebeb;
+    --highlight-color: #dfeeff;
+}
+
+.dark-mode {
+    --bg-color: #121212;
+    --text-color: #1a04c3;
+    --border-color: #444444;
+    --btn-color: #ffffff;
+    --btn-text: #121212;
+    --cell-bg: #5f5e5e;
+    --highlight-color:#57a5ff;
+}
+
+body {
+    font-family: "Special Gothic Expanded One", sans-serif; /* external font */
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+}
+
+header { /* flex box to separate title and links */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: linear-gradient(to right, #fffb09, var(--text-color));
+}
+
+nav > * {/* all nav direct children */
+    margin-left: 15px;
+}
+
+.page-title { 
+    font-style: italic;  /* font style */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* shadow for depth */
+}
+
+/* visited */
+nav a:visited {
+    color: #660099; /* Purple for visited links */
+}
+
+/* hover */
+nav a:hover {
+    color: #ff4c60; /* Red on hover*/
+}
+
+/* image styling */
+.about-image {
+    width: 45vw;        /* 45% of the viewport width */
+    height: auto;       /* auto adjusted by width */
+    display: block;     /* default INLINE, but switch to BLOCK*/
+    border-radius: 10px; /* rounded corners */
+}
+.about-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 20px;
+    align-items: center;
+}
+.about-content {
+    flex: 1;
+    font-size: clamp(14px, 2vw, 25px); /* responsive text size */
+}
+.info-list {
+    list-style-type: disc;
+    margin-top: 20px;
+}
+.list-element{
+    margin-top:10px;
+}
+.nested-list {
+    list-style-type: none; /* remove default marker */
+    padding-left: 20px;
+}
+  
+.nested-list li::marker {
+    content: '🌟 '; /* custom bullet using pseudo-element */
+    font-size: 1.1em;
+}
+
+footer {
+    padding: 30px;
+}
+  
+form {
+    max-width: 50vw;
+    margin: auto;
+}
+
+fieldset {
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+input, textarea{
+    width: 90%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    font-size: 1em;
+}
+
+button {
+    background-color: var(--btn-color);
+    color: var(--btn-text);
+    cursor: pointer;
+    margin-top: 0px;
+    border-radius: 12px;  
+    padding: 5px
+}
+
+button:hover {
+    background-color: grey;
+}
+  
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 20px;
+    padding: 20px;
+}
+  
+.project {
+    background-color: var(--cell-bg);
+    border: 2px solid #ccc;
+    padding: 15px;
+    border-radius: 10px;
+}
+.project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+  
+.highlight {
+    grid-column: span 2; /* spans 2 cells*/
+    background-color: var(--highlight-color);
+    border-color: #99c;
+}
+.icon-computer {
+    vertical-align: middle;
+    width: clamp(14px, 2vw, 25px);
+    height: auto;
+}
+
+.section-headers {
+    margin-bottom: 0;
+    margin-left: 20px;
+}
+
+.skills-section {
+    display: flex;
+    flex-direction: row;              /* 1 */
+    justify-content: space-around;   /* 2 */
+    align-items: stretch;            /* 3 */
+    flex-wrap: wrap;                 /* Makes it responsive if vw gets small*/
+    gap: 20px;
+    padding: 20px;
+}
+  
+.skill-card {
+    flex: 1 1 200px;                  /* flex-grow, flex-shrink, flex-basis */
+    background-color: var(--cell-bg);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 750px) { /* media to resize grid when less than 750 px wide */
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .highlight {
+        grid-column: span 1; /* reset span on mobile */
+    }
+}
+
+@media (max-width: 750px) {
+    .about-section { /* make flex column instead of row if too small width */
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .about-image {
+      width: 90%;
+    }
+  
+    .about-content {
+      text-align: left;
+      padding: 10px;
+    }
+  }
+  @media (min-width: 546px) and (max-width: 764px) { /* if between these two add space margin on top of toggle */
+    button[id*="toggle"] {
+        margin-top: 10px;
+    }
+}
